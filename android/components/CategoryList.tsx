@@ -3,7 +3,8 @@ import React from 'react';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useEffect, useState } from 'react';
 
-// Define the stack param list
+const API_URL = 'https://5b2734891ca6.ngrok-free.app';
+
  type RootStackParamList = {
    Home: undefined;
    CategoryScreen: { category: string };
@@ -18,9 +19,6 @@ type Categories = {
   name: string;
   image: string;
 }
-
-
-const API_URL = 'http://10.0.2.2:3000';
 
 const CategoryList = ({ navigation }: CategoryListProps) => {
   const [categories, setCategories] = useState<Categories[]>([]); 

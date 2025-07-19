@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FFF2E0',
+    backgroundColor: '#feca57',
     borderRadius: 8,
     margin: 15,
     paddingHorizontal: 10,
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   textfield: {
-    paddingHorizontal:20,
+    paddingHorizontal:10,
     fontSize: 18,
     flex: 1,
     borderWidth: 0,

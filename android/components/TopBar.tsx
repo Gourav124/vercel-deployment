@@ -14,7 +14,7 @@ const TopBar = () => {
 const styles = StyleSheet.create({
 
   topBar: {
-    height: 100,
+    height: 80,
     backgroundColor: '#f39c12',
     justifyContent: 'space-evenly',
     alignItems: 'flex-start',

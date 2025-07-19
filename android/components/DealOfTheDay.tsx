@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, Image } from 'react-native';
 
-const API_URL = 'http://10.0.2.2:3000';
+const API_URL = 'https://5b2734891ca6.ngrok-free.app';
 
 type Deal = {
   id: number;

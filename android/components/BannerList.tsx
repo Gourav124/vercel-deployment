@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, FlatList, Dimensions, ViewToken } from 'react-native';
 
+const API_URL = 'https://lelekartbackend.vercel.app/';
+
 type banners = {
   id: number;
   title: string,
@@ -8,7 +10,6 @@ type banners = {
   image_url:string
 
 };
-const API_URL = 'http://10.0.2.2:3000';
 
 const { width } = Dimensions.get('window');
 

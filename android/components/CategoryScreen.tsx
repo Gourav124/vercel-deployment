@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, FlatList, Image, ActivityIndicator } from 'reac
 import type { RouteProp } from '@react-navigation/native';
 
 
-const API_URL = 'http://10.0.2.2:3000';
+const API_URL = 'https://5b2734891ca6.ngrok-free.app';
 
  type RootStackParamList = {
    Home: undefined;
@@ -99,9 +99,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#EAF6FB',
     borderRadius: 16,
     padding: 8,
-    marginRight: 12,
+    marginRight: 25,
     marginTop:12,
-    width: 300,
+    width: 250,
     alignItems: 'center',
     shadowColor: '#000',
     shadowOpacity: 0.1,

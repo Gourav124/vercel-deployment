@@ -1,28 +1,54 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { SafeAreaView, ScrollView } from 'react-native';
+import TopBar from './android/components/TopBar';
+import SearchBar from './android/components/SearchBar';
+import CategoryList from './android/components/CategoryList';
+import BannerList from './android/components/BannerList';
+import DealOfTheDay from './android/components/DealOfTheDay';
+import ProductList from './android/components/ProductList';
+import CategoryScreen from './android/components/CategoryScreen';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+type RootStackParamList = {
+  Home: undefined;
+  CategoryScreen: { category: string };
+};
 
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
+
+const HomeScreen = ({ navigation }: { navigation: HomeScreenNavigationProp }) => (
+  <SafeAreaView>
+    <ScrollView>
+      <TopBar />
+      <SearchBar />
+      <CategoryList navigation={navigation} />
+      <BannerList />
+      <DealOfTheDay />
+      <ProductList />
+    </ScrollView>
+  </SafeAreaView>
+);
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NewAppScreen templateFileName="App.tsx" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen 
+        name="CategoryScreen" 
+        component={CategoryScreen} 
+        options={({ route }) => ({ 
+          title: route.params.category,
+          headerStyle: { backgroundColor: '#f39c12' }, 
+          headerTintColor: '#fff', })} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+};
 
 export default App;
